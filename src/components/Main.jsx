@@ -1,4 +1,4 @@
-import Details from "./details" 
+import Details from "./Details" 
 import { useState } from 'react'
 export default function Main({ setShowDetails, newData, setNewData, openForm, showDetails ,status,setStatus}) {
  
