@@ -62,22 +62,26 @@ export default function NewForm({openForm,showForm,newData,setNewData,setShowFor
           </label>
 
           <div className="address-group">
-            <label htmlFor="cityFrom">
-              City
-              <input name="cityFrom" id="cityFrom" type="text" />
-            </label>
+            <div className="xd">
+              <label htmlFor="cityFrom">
+                City
+                <input name="cityFrom" id="cityFrom" type="text" />
+              </label>
 
-            <label htmlFor="postCode">
-              Post Code
-              <input style={{ width: "115px" }} name="postCode" id="postCode" type="text"
-              />
-            </label>
+              <label htmlFor="postCode">
+                Post Code
+                <input style={{ width: "115px" }} name="postCode" id="postCode" type="text"
+                />
+              </label>
+            </div>
+            <div>
+              <label htmlFor="countryFrom">
+                Country
+                <input className="country" name="countryFrom" id="countryFrom" type="text" />
+              </label>
+            </div>  
+
           </div>
-
-          <label htmlFor="countryFrom">
-            Country
-            <input name="countryFrom" id="countryFrom" type="text" />
-          </label>
 
           <h5>Bill To</h5>
           <label htmlFor="name">
@@ -95,25 +99,27 @@ export default function NewForm({openForm,showForm,newData,setNewData,setShowFor
             <input name="streetTo" id="streetTo" type="text" />
           </label>
 
-          <div className="address-group">
-            <label htmlFor="cityTo">
-              City
-              <input name="cityTo" id="cityTo" type="text" />
-            </label>
-
-            <label htmlFor="postCodeTo">
-              Post Code
-              <input
-                style={{ width: "115px" }} name="postCodeTo" id="postCodeTo" type="text"
-              />
-            </label>
+          <div className="address-group-two">
+            <div className="xd">
+              <label htmlFor="cityTo">
+                City
+                <input required name="cityTo" id="cityTo" type="text" />
+              </label>
+      
+              <label htmlFor="postCodeTo">
+                Post Code
+                <input
+                  style={{ width: "115px" }} name="postCodeTo" id="postCodeTo" type="text"
+                />
+              </label>
+              <div>
+                <label htmlFor="countryTo">
+                  Country
+                  <input name="countryTo" id="countryTo" type="text" />
+                </label>
+              </div>
+            </div>
           </div>
-
-          <label htmlFor="countryTo">
-            Country
-            <input name="countryTo" id="countryTo" type="text" />
-          </label>
-
           <label htmlFor="date">
             Invoice Date
             <input name="date" id="date" type="date" />

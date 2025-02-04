@@ -29,7 +29,7 @@ export default function Main({ setShowDetails, newData, setNewData, openForm, sh
           <div className="date-flex">
             <div>
               <h5>{x.date}</h5>
-              <h6>{x.items.map(y => y.total).reduce((a, b) => a + b, 0)}</h6>
+              <h6>£{x.items.map(y => y.total).reduce((a, b) => a + b, 0)}.00</h6>
             </div>
             <div>
               <div className={x.status === 'paid' ? 'status-paid' : '' || x.status ==='draft' ? 'draft' : '' || x.status === 'pending' ? 'status' : ''}>

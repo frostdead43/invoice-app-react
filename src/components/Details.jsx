@@ -148,7 +148,7 @@ export default function Details({ details, setDetails, setNewData, newData, setS
             <img src="./assets/images/left-arrow.svg" alt="Go back" />
             <span onClick={() => setShowDetails(false)}>Go back</span>
           </div>
-          <h2>New Invoice</h2>
+          <h2>Edit</h2>
           <h5>Bill From</h5>
           <form onSubmit={handleSubmit}>
             <label htmlFor="streetAddress">
@@ -236,10 +236,9 @@ export default function Details({ details, setDetails, setNewData, newData, setS
               </div>
             </div>
             <button className="add-item-btn"> + Add New Item</button>
-            <div className="form-footer">
-              <button>Discard</button>
-              <button>Save as Draft</button>
-              <button>Save & Send</button>
+            <div className="formDetail-footer">
+              <button>Cancel</button>
+              <button>Save Changes</button>
             </div>
           </form>
         </div>

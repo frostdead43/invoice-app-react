@@ -8,11 +8,11 @@ export default function Filter({openForm, newData}) {
         <h6>{newData.length > 0 ? newData.length : "No"} invoices</h6>
       </div>
         <div className="right">
-          <select name="">
+          {/* <select name="">
             <option value="">Draft</option>
             <option value="">Pending</option>
             <option value="">Paid</option>
-          </select>
+          </select> */}
           <button onClick={openForm} className="button-area">
             <img src="./assets/images/plus-icon.jpg"/>New</button>
         </div>         
