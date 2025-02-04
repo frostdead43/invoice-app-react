@@ -27,7 +27,7 @@ export default function Main({ setShowDetails, newData, setNewData, openForm, sh
           </div>
 
           <div className="date-flex">
-            <div>
+            <div className="date-price">
               <h5>{x.date}</h5>
               <h6>£{x.items.map(y => y.total).reduce((a, b) => a + b, 0)}.00</h6>
             </div>
