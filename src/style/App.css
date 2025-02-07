@@ -456,6 +456,38 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-radius: 6px;
 }
 
+.form-detail-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.form-detail-footer button:nth-child(1) {
+  color: rgba(223, 227, 250, 1);
+  background-color: rgba(37, 41, 69, 1);
+  padding: 18px 19px 15px 18px;
+  width: 84px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  border-radius: 24px;
+  border: none;
+}
+
+.form-detail-footer button:nth-child(2) {
+  background-color: rgb(123, 92, 250);
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  padding: 15px;
+  border-radius: 24px;
+  border: none;
+}
+
 
 /* payment area */
 
@@ -901,9 +933,83 @@ dialog p {
 
   input#countryFrom.country {
     display: flex;
-    width: 220px;
+    width: 300px;
   }
-  
+
+  .form-container {
+    position: fixed;
+    background-color: rgba(20, 22, 37, 1);
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    transition: transform 0.5s ease-in-out;
+    left: 80px;
+    top: 0;
+    z-index: 1;
+    overflow-y: auto;
+    animation: slide-in 0.5s;
+    width: 47rem;
+    border-radius: 0rem 24.615px 24.615px 0rem;
+    height: 100vh;
+    padding: 16px 20.8px 0;
+    scrollbar-color: rgb(44, 40, 40) rgba(20, 22, 37, 1);;
+    scrollbar-width: thin;
+    
+    input {
+     font-size: 15px;
+     font-weight: 700;
+     line-height: 15px;
+     letter-spacing: -0.25px;
+     width: 100%;
+    }
+    label {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15px;
+    letter-spacing: -0.10000000149011612px;
+    color: rgb(126, 136, 195);
+
+   }
+   .form-footer {
+    background-color: rgba(20, 22, 37, 1);
+   } 
+   .form-footer button:nth-child(1) {
+    margin-left: 60px;
+   }
+   .form-footer button:nth-child(3) {
+    margin-right: 80px;
+   }
+}
+
+  @keyframes slide-in {
+      0% {
+        transform: translateX(-100%)
+      }
+      100% {
+        transform: translateX(0)
+      }
+  }
+  .address-group {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 100%;
+    border: 0;
+    gap: 24px;
+  input {
+    padding: 18px 20px 15px;
+    }
+    label {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+}
+
+
+@media(width >= 1920px) {
+  input#countryFrom.country {
+    display: flex;
+    width: 189px;
+  }
 }
 
 

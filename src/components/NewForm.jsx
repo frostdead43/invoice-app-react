@@ -58,26 +58,26 @@ export default function NewForm({openForm,showForm,newData,setNewData,setShowFor
         <form onSubmit={handleSubmit}>
           <label htmlFor="streetAddress">
             Street Address
-            <input name="streetAddress" id="streetAddress" type="text" />
+            <input required name="streetAddress" id="streetAddress" type="text" />
           </label>
 
           <div className="address-group">
             <div className="xd">
               <label htmlFor="cityFrom">
                 City
-                <input name="cityFrom" id="cityFrom" type="text" />
+                <input required name="cityFrom" id="cityFrom" type="text" />
               </label>
 
               <label htmlFor="postCode">
                 Post Code
-                <input style={{ width: "115px" }} name="postCode" id="postCode" type="text"
+                <input required style={{ width: "115px" }} name="postCode" id="postCode" type="text"
                 />
               </label>
             </div>
             <div>
               <label htmlFor="countryFrom">
                 Country
-                <input className="country" name="countryFrom" id="countryFrom" type="text" />
+                <input required className="country" name="countryFrom" id="countryFrom" type="text" />
               </label>
             </div>  
 
@@ -86,17 +86,17 @@ export default function NewForm({openForm,showForm,newData,setNewData,setShowFor
           <h5>Bill To</h5>
           <label htmlFor="name">
             Client’s Name
-            <input name="name" id="client-name" type="text" />
+            <input required name="name" id="client-name" type="text" />
           </label>
 
           <label htmlFor="clientEmail">
             Client’s Email
-            <input name="clientEmail" id="clientsEmail" type="email" />
+            <input required name="clientEmail" id="clientsEmail" type="email" />
           </label>
 
           <label htmlFor="streetTo">
             Street Address
-            <input name="streetTo" id="streetTo" type="text" />
+            <input required name="streetTo" id="streetTo" type="text" />
           </label>
 
           <div className="address-group-two">
@@ -109,20 +109,20 @@ export default function NewForm({openForm,showForm,newData,setNewData,setShowFor
               <label htmlFor="postCodeTo">
                 Post Code
                 <input
-                  style={{ width: "115px" }} name="postCodeTo" id="postCodeTo" type="text"
+                  style={{ width: "115px" }} required name="postCodeTo" id="postCodeTo" type="text"
                 />
               </label>
               <div>
                 <label htmlFor="countryTo">
                   Country
-                  <input name="countryTo" id="countryTo" type="text" />
+                  <input required name="countryTo" id="countryTo" type="text" />
                 </label>
               </div>
             </div>
           </div>
           <label htmlFor="date">
             Invoice Date
-            <input name="date" id="date" type="date" />
+            <input required name="date" id="date" type="date" />
           </label>
 
           <label htmlFor="paymentTerms">
@@ -137,7 +137,7 @@ export default function NewForm({openForm,showForm,newData,setNewData,setShowFor
 
           <label htmlFor="desc">
             Project Description
-            <input name="desc" id="desc" type="text" />
+            <input required name="desc" id="desc" type="text" />
           </label>
 
           <h4>Item List</h4>
@@ -145,15 +145,13 @@ export default function NewForm({openForm,showForm,newData,setNewData,setShowFor
             <div className="item" key={item.id}>
               <label htmlFor={`itemName-${index}`}>
                 Item Name
-                <input name={`itemName-${index}`} id={`itemName-${index}`} type="text" value={item.itemName} onChange={(e) => { const newAdd = [...add]; newAdd[index].itemName = e.target.value; setAdd(newAdd); }} />
-
-
+                <input required name={`itemName-${index}`} id={`itemName-${index}`} type="text" value={item.itemName} onChange={(e) => { const newAdd = [...add]; newAdd[index].itemName = e.target.value; setAdd(newAdd); }} />
               </label>
-
+              
               <div className="item-details">
                 <label htmlFor={`qty-${index}`}>
                   Qty.
-                  <input
+                  <input required
                     id={`qty-${index}`}
                     type="number"
                     name={`qty-${index}`}
@@ -169,7 +167,7 @@ export default function NewForm({openForm,showForm,newData,setNewData,setShowFor
 
                 <label htmlFor={`price-${index}`}>
                   Price
-                  <input
+                  <input required
                     id={`price-${index}`}
                     type="number"
                     name={`price-${index}`}
@@ -185,7 +183,7 @@ export default function NewForm({openForm,showForm,newData,setNewData,setShowFor
 
                 <label htmlFor={`total`}>
                   Total
-                  <input
+                  <input required
                     type="number"
                     disabled
                     id={`total`}

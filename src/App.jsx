@@ -34,7 +34,7 @@ function App() {
               <EmptyPage />
             ) : (
               <Main showDetails = {showDetails} setShowDetails = {setShowDetails} newData={newData}  setNewData={setNewData} status = {status}
-              setStatus={setStatus}  />
+              setStatus={setStatus} setShowForm={setShowForm} />
             )}
           </>
         )}

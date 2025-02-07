@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-export default function Details({ details, setDetails, setNewData, newData, setShowDetails }) {
+export default function Details({ details, setDetails, setNewData, newData, setShowDetails, setShowForm }) {
   console.log(details);
   const dialogRef = useRef(null);
   const [isEdit, setEdit] = useState(false);
@@ -34,18 +34,13 @@ export default function Details({ details, setDetails, setNewData, newData, setS
 
   }
 
-
   function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
     const formObj = Object.fromEntries(formData);
     formObj.id = details.id;
-    const total = formObj.qty * formObj.price;
-    formObj.total = total;
-    updateWork(formObj);
-    handleMarkPaid(formObj)
-    
-
+    formObj.total = formObj.qty * formObj.price; 
+    updateWork(formObj); 
   }
 
   function handleMarkPaid() {
@@ -69,11 +64,11 @@ export default function Details({ details, setDetails, setNewData, newData, setS
           <div className="detail-area">
             <div className="status-area">
               <h6>Status</h6>
-              <div className={details.status === 'draft' ? 'status-draft' : '' || details.status === 'pending' ? 'status-pending' : 'status-paid'}>{details.status}</div>
+              <div className={details?.status === 'draft' ? 'status-draft' : '' || details?.status === 'pending' ? 'status-pending' : 'status-paid'}>{details.status}</div>
             </div>
             <div className="payment-area">
               <div className='payment-desc'>
-                <h3><span>#</span>MG3131</h3>
+                <h3><span>#</span>MG3543</h3>
                 <h6>{details.desc}</h6>
               </div>
 
@@ -117,7 +112,6 @@ export default function Details({ details, setDetails, setNewData, newData, setS
                         <h6>£{y.total}.00</h6>
                       </div>
                     </div>
-                    
                   ))}
                 </div>
               </div>
@@ -143,105 +137,148 @@ export default function Details({ details, setDetails, setNewData, newData, setS
           </dialog>
         </>
       ) : (
-        <div className="form-area">
-          <div className="flex">
-            <img src="./assets/images/left-arrow.svg" alt="Go back" />
-            <span onClick={() => setShowDetails(false)}>Go back</span>
-          </div>
-          <h2>Edit</h2>
-          <h5>Bill From</h5>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="streetAddress">
-              Street Address
-              <input defaultValue={details.streetAddress} name="streetAddress" id="streetAddress" type="text" />
-            </label>
-            <div className="address-group">
-              <label htmlFor="cityFrom">
+        <div className="form-container">
+      <div className="form-area">
+        <div className="flex">
+          <img src="./assets/images/left-arrow.svg" alt="Go back" />
+          <span>Go back</span>
+        </div>
+
+        <h2>Edit Invoice</h2>
+
+        <h5>Bill From</h5>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="streetAddress">
+            Street Address
+            <input required  defaultValue={details.streetAddress}  name="streetAddress" id="streetAddress" type="text" />
+          </label>
+
+          <div className="address-group">
+            <div className="xd">
+              <label htmlFor="cityFromtwo">
                 City
-                <input defaultValue={details.cityFrom} name="cityFrom" id="cityFrom" type="text" />
+                <input required defaultValue={details.cityFrom} name="cityFromtwo" id="cityFrom" type="text" />
               </label>
-              <label htmlFor="postCode">
+
+              <label htmlFor="postCodetwo">
                 Post Code
-                <input defaultValue={details.postCode} name="postCode" id="postCode" type="text" />
+                <input required defaultValue={details.postCode} style={{ width: "115px" }} name="postCodetwo" id="postCode" type="text"
+                />
               </label>
             </div>
-            <label htmlFor="countryFrom">
-              Country
-              <input defaultValue={details.countryTo} name="countryFrom" id="countryFrom" type="text" />
-            </label>
-            <h5>Bill To</h5>
-            <label htmlFor="name">
-              Client’s Name
-              <input defaultValue={details.name} name="name" id="client-name" type="text" />
-            </label>
-            <label htmlFor="clientEmail">
-              Client’s Email
-              <input defaultValue={details.clientEmail} name="clientEmail" id="clientsEmail" type="email" />
-            </label>
-            <label htmlFor="streetTo">
-              Street Address
-              <input defaultValue={details.streetAddress} name="streetTo" id="streetTo" type="text" />
-            </label>
-            <div className="address-group">
-              <label htmlFor="cityTo">
-                City
-                <input defaultValue={details.cityTo} name="cityTo" id="cityTo" type="text" />
+            <div>
+              <label htmlFor="countryFrom">
+                Country
+                <input required className="countrytwo" defaultValue={details.countryFrom} name="countryFromtwo" id="countryFromtwo" type="text" />
               </label>
+            </div>  
+
+          </div>
+
+          <h5>Bill To</h5>
+          <label htmlFor="nametwo">
+            Client’s Name
+            <input required defaultValue={details.name} name="nametwo" id="client-nametwo" type="text" />
+          </label>
+
+          <label htmlFor="clientEmailtwo">
+            Client’s Email
+            <input required defaultValue={details.clientEmail} name="clientEmailtwo" id="clientsEmailtwo" type="email" />
+          </label>
+
+          <label htmlFor="streetTotwo">
+            Street Address
+            <input required defaultValue={details.streetTo} name="streetTotwo" id="streetTotwo" type="text" />
+          </label>
+
+          <div className="address-group-two">
+            <div className="xd">
+              <label htmlFor="cityTotwo">
+                City
+                <input required defaultValue={details.cityTo} name="cityTotwo" id="cityTotwo" type="text" />
+              </label>
+      
               <label htmlFor="postCodeTo">
                 Post Code
-                <input defaultValue={details.postCodeTo} name="postCodeTo" id="postCodeTo" type="text" />
+                <input
+                  style={{ width: "115px" }} required defaultValue={details.postCodeTo} name="postCodeTo" id="postCodeTo" type="text"
+                />
               </label>
-            </div>
-            <label htmlFor="countryTo">
-              Country
-              <input defaultValue={details.countryTo} name="countryTo" id="countryTo" type="text" />
-            </label>
-            <label htmlFor="date">
-              Invoice Date
-              <input defaultValue={details.date} name="date" id="date" type="date" />
-            </label>
-            <label htmlFor="paymentTerms">
-              Payment Terms
-              <select name="paymentTerms" id="paymentTerms">
-                <option value="">Net 1 Days</option>
-                <option value="">Net 7 Days</option>
-                <option value="">Net 15 Days</option>
-                <option value="">Net 30 Days</option>
-              </select>
-            </label>
-            <label htmlFor="desc">
-              Project Description
-              <input defaultValue={details.desc} name="desc" id="desc" type="text" />
-            </label>
-            <h4>Item List</h4>
-            <div className="item">
-              <label htmlFor="itemName">
-                Item Name
-                <input defaultValue={details.itemName} name="itemName" id="itemName" type="text" />
-              </label>
-              <div className="item-details">
-                <label htmlFor="qty">
-                  Qty.
-                  <input defaultValue={details.qty} id="qty" type="number" name="qty" />
+              <div>
+                <label htmlFor="countryTotwo">
+                  Country
+                  <input required defaultValue={details.countryTo} name="countryTotwo" id="countryTotwo" type="text" />
                 </label>
-                <label htmlFor="price">
-                  Price
-                  <input defaultValue={details.price} id="price" type="number" name="price" />
-                </label>
-                <label htmlFor="total">
-                  Total
-                  <input type="number" disabled id="total" name="total" />
-                </label>
-                <img src="./assets/images/trash-icon.svg" alt="" />
               </div>
             </div>
-            <button className="add-item-btn"> + Add New Item</button>
-            <div className="formDetail-footer">
-              <button>Cancel</button>
-              <button>Save Changes</button>
+          </div>
+          <label htmlFor="datetwo">
+            Invoice Date
+            <input required name="datetwo" defaultValue={details.date} id="datetwo" type="date" />
+          </label>
+
+          <label htmlFor="paymentTermstwo">
+            Payment Terms
+            <select name="paymentTermstwo" id="paymentTermstwo">
+              <option value="1">Net 1 Day</option>
+              <option value="7">Net 7 Days</option>
+              <option value="15">Net 15 Days</option>
+              <option value="30">Net 30 Days</option>
+            </select>
+          </label>
+
+          <label htmlFor="desctwo">
+            Project Description
+            <input required name="desctwo" defaultValue={details.desc} id="desctwo" type="text" />
+          </label>
+
+          <h4>Item List</h4>
+         
+            <div className="item">
+              <label htmlFor={`itemName`}>
+                Item Name
+                <input required defaultValue={details.itemName} name={"itemName"} id={`itemName`} type="text" />
+              </label>
+
+              <div className="item-details">
+                <label htmlFor={`qty`}>
+                  Qty.
+                  <input required
+                    id={`qty`}
+                    type="number"
+                    name={`qty`}
+                  />
+                </label>
+
+                <label htmlFor={`price`}>
+                  Price
+                  <input required
+                    id={`price`}
+                    type="number"
+                    name={`price`}
+                  />
+                </label>
+
+                <label htmlFor={`total`}>
+                  Total
+                  <input required
+                    type="number"
+                    disabled
+                    id={`total`}
+                    name={'total'}
+                  />
+                </label>
+                <img src="./assets/images/trash-icon.svg" alt="Delete" />
+              </div>
             </div>
-          </form>
-        </div>
+          <button type="button" className="add-item-btn">+ Add New Item </button>
+          <div className="form-detail-footer">
+            <button type="button" onChange={() => setShowForm(false)}>Cancel</button>
+            <button type="button">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
       )}
     </>
   )

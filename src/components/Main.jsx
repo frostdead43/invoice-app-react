@@ -1,6 +1,6 @@
 import Details from "./Details" 
 import { useState } from 'react'
-export default function Main({ setShowDetails, newData, setNewData, openForm, showDetails ,status,setStatus}) {
+export default function Main({ setShowDetails, newData, setNewData, openForm, showDetails ,status,setStatus, setShowForm}) {
  
   const [details,setDetails] =  useState(null);
   console.log(newData);
@@ -14,7 +14,7 @@ export default function Main({ setShowDetails, newData, setNewData, openForm, sh
   return(
     <div className="main-area">
   {showDetails ? (
-    <Details details={details} openForm={openForm}  setDetails={setDetails} setNewData={setNewData} newData={newData} setShowDetails={setShowDetails}  />
+    <Details details={details} openForm={openForm}  setDetails={setDetails} setNewData={setNewData} newData={newData} setShowDetails={setShowDetails} setShowForm={setShowForm}  />
   ) : newData.length > 0 ? (
     newData.map((x) => (
       <div key={x.id}>

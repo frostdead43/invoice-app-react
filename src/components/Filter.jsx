@@ -1,4 +1,3 @@
-import NewForm from './NewForm'
 export default function Filter({openForm, newData}) { 
   return(
     <>
